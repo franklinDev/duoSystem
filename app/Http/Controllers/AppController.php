@@ -9,7 +9,17 @@ class AppController extends Controller
 {
     public function index ()
     {
-        $flights = Atividade::all();
-        return $flights;
+        $atividades = Atividade::paginate(1);
+        return view('home');
+    }
+
+    public function cadastrar ()
+    {
+		return view('cadastro');
+    }
+
+    public function editar () 
+    {
+    	return view('cadastro');					
     }
 }

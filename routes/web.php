@@ -12,3 +12,5 @@
 */
 
 Route::get('/', 'AppController@index');
+Route::get('/cadastrar', 'AppController@cadastrar');
+Route::get('/editar', 'AppController@editar');
