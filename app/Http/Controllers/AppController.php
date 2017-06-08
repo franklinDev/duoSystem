@@ -5,25 +5,38 @@ namespace DuoSytem\Http\Controllers;
 use DuoSytem\Model\StatusAtividade;
 use Illuminate\Http\Request;
 use DuoSytem\Model\Atividade as Atividade;
+use Illuminate\Support\Facades\Input;
 
 class AppController extends Controller
 {
-    public function index ()
+    
+    public function __construct ()
     {
-        
-        $obj        = new Atividade();
-        $atividades = Atividade::paginate(5);
-        $status     = StatusAtividade::all();
-       
-        return view('home', ['status' => $status, 
-            'atividades' => $atividades, 
-            'pendencias' => $obj->getProcedurePendencias()]
-            );
+        $this->objAtividade = new Atividade();
+        $this->pendencias   = $this->objAtividade->getProcedurePendencias();
+        $this->status       = StatusAtividade::all();
     }
 
-    public function cadastrar ()
+    public function index ()
+    {            
+        $atividades = Atividade::paginate(5);
+           
+        return view('home', [
+            'status' => $this->status, 
+            'atividades' => $atividades, 
+            'pendencias' => $this->pendencias
+            ]);
+    }
+
+    public function cadastro ()
     {
-		return view('cadastro');
+		return view('cadastro', ['pendencias' => $this->pendencias, 'status' => $this->status]);
+    }
+
+    public function cadastrar (Request $request)
+    {
+        $ret = $this->objAtividade->saveAtividade($request);        
+        return view('cadastro', ['pendencias' => $this->pendencias, 'status' => $this->status, 'mensagemSucesso' => $ret]);
     }
 
     public function editar ($id)

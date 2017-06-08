@@ -45,7 +45,7 @@
                     </a>
                 </li> 
                 <li class="">
-                    <a href="{{ url('/') }}/cadastrar">
+                    <a href="{{ url('/') }}/cadastro">
                         <i class="pe-7s-plus"></i>
                         <p>Cadastrar Atividades</p>
                     </a>
@@ -81,8 +81,7 @@
     <!--  Notifications Plugin    -->
     <script src="assets/js/bootstrap-notify.js"></script>
 
-    <!--  Google Maps Plugin    -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
 
     <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
     <script src="assets/js/light-bootstrap-dashboard.js"></script>

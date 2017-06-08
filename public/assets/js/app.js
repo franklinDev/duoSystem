@@ -1,5 +1,6 @@
 $(document).ready(function () {
    
+   	// Requisição das atividades de acordo com o filtro de Status
     $('.status_link').on('click', function (event) {
         event.preventDefault();
         $.ajax({
@@ -11,6 +12,7 @@ $(document).ready(function () {
         }});
     });
 
+	// Requisição das atividades de acordo com o filtro de Situação
     $('.situacao_link').on('click', function (event) {
         event.preventDefault();
         $.ajax({
@@ -22,6 +24,7 @@ $(document).ready(function () {
             }
         });
     });
+
 
     function atualizaGrid (result)
     {
@@ -52,4 +55,5 @@ $(document).ready(function () {
   
     }
 
+    $('.date').mask('00/00/0000');
 });

@@ -79,7 +79,7 @@
                                 {!! $atividades->render() !!}
                                 <div class="row">
                                     <div class="col-lg-1">
-                                        <a href="{{ url('/') }}/cadastrar">
+                                        <a href="{{ url('/') }}/cadastro">
                                             <button type="button" class="btn">Cadastrar Nova Atividade</button>
                                         </a>
                                     </div>

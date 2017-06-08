@@ -12,7 +12,9 @@
 */
 
 Route::get('/', 'AppController@index');
-Route::get('/cadastrar', 'AppController@cadastrar');
+Route::get('/cadastro', 'AppController@cadastro');
 Route::get('/editar/{id}', 'AppController@editar');
 Route::get('/getAtividadesStatus/{status}', 'AppController@getAtividadesStatus');
 Route::get('/getAtividadesSituacao/{situacao}', 'AppController@getAtividadesSituacao');
+
+Route::post('/cadastrar', 'AppController@cadastrar');
