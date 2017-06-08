@@ -55,9 +55,9 @@
                                     <th>Status</th>
                                     <th>Situação</th>
                                 </thead>
-                                <tbody>
+                                <tbody class="tab-atividade">
                                 @foreach($atividades as $atividade)
-                                    <tr  @if ($atividade->status_id == 4) style="background-color: #dff0d8  @endif">
+                                    <tr class="row-atividade" @if ($atividade->status_id == 4) style="background-color: #dff0d8  @endif">
                                         <td>
                                             <a href="{{url('/')}}/editar/{{$atividade->id}}">
                                                 <button type="button" class="btn btn-default btn-sm">
@@ -76,7 +76,7 @@
                                 </tbody>
                             </table>
                             <div class="content">
-
+                                {!! $atividades->render() !!}
                                 <div class="row">
                                     <div class="col-lg-1">
                                         <a href="{{ url('/') }}/cadastrar">
