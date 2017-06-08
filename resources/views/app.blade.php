@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-
+    <base href="{{url('/')}}">
     <title>DuoSystem</title>
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -84,5 +84,6 @@
     <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
     <script src="assets/js/demo.js"></script>
 
+    <script src="assets/js/app.js"></script>
 
 </html>

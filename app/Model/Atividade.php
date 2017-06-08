@@ -13,4 +13,9 @@ class Atividade extends Model
         'status_id',
         'situacao'
     ];
+
+    public function status()
+    {
+        return $this->belongsTo('DuoSytem\Model\StatusAtividade');
+    }
 }

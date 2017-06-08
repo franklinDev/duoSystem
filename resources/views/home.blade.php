@@ -19,10 +19,9 @@
                                                     Status <span class="caret"></span>
                                                   </button>
                                                   <ul class="dropdown-menu">
-                                                    <li><a href="#">Action</a></li>
-                                                    <li><a href="#">Another action</a></li>
-                                                    <li><a href="#">Something else here</a></li>                                            
-                                                    <li><a href="#">Separated link</a></li>
+                                                      @foreach($status as $s)
+                                                        <li><a class='status_link' data-id="{{$s->id}}" href="#">{{$s->descricao}}</a></li>
+                                                      @endforeach
                                                   </ul>
                                                 </div>                                                
                                             </div>
@@ -33,9 +32,9 @@
                                                   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     Situação <span class="caret"></span>
                                                   </button>
-                                                  <ul class="dropdown-menu">
-                                                    <li><a href="#">Ativo</a></li>
-                                                    <li><a href="#">Inativo</a></li>                                                                                        
+                                                  <ul id="stituacao" class="dropdown-menu">
+                                                    <li><a class='situacao_link'data-id="1" href="#">Ativo</a></li>
+                                                    <li><a class='situacao_link'  data-id="0" href="#">Inativo</a></li>
                                                   </ul>
                                                 </div>                                                
                                             </div>
@@ -48,58 +47,44 @@
                         <div class="content table-responsive table-full-width">
                             <table class="table table-hover table-striped">
                                 <thead>
-                                    <th>ID</th>
-                                    <th>Name</th>
-                                    <th>Salary</th>
-                                    <th>Country</th>
-                                    <th>City</th>
+                                    <th>Editar</th>
+                                    <th>Nome</th>
+                                    <th>Descrição</th>
+                                    <th>Data de Início</th>
+                                    <th>Data de Fim</th>
+                                    <th>Status</th>
+                                    <th>Situação</th>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Dakota Rice</td>
-                                        <td>$36,738</td>
-                                        <td>Niger</td>
-                                        <td>Oud-Turnhout</td>
+                                @foreach($atividades as $atividade)
+                                    <tr  @if ($atividade->status_id == 4) style="background-color: #dff0d8  @endif">
+                                        <td>
+                                            <a href="{{url('/')}}/editar/{{$atividade->id}}">
+                                                <button type="button" class="btn btn-default btn-sm">
+                                                    <span class="glyphicon glyphicon-pencil"></span> Editar
+                                                </button>
+                                            </a>
+                                        </td>
+                                        <td>{{$atividade->nome}}</td>
+                                        <td>{{$atividade->descricao}}</td>
+                                        <td>{{date('d/m/Y', strtotime($atividade->dt_inicio))}}</td>
+                                        <td>{{date('d/m/Y', strtotime($atividade->dt_fim))}}</td>
+                                        <td>{{$atividade->status->descricao}}</td>
+                                        <td>@if ($atividade->situacao == 1) Ativo @else Inativo @endif</td>
                                     </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Minerva Hooper</td>
-                                        <td>$23,789</td>
-                                        <td>Curaçao</td>
-                                        <td>Sinaai-Waas</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Sage Rodriguez</td>
-                                        <td>$56,142</td>
-                                        <td>Netherlands</td>
-                                        <td>Baileux</td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Philip Chaney</td>
-                                        <td>$38,735</td>
-                                        <td>Korea, South</td>
-                                        <td>Overland Park</td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td>Doris Greene</td>
-                                        <td>$63,542</td>
-                                        <td>Malawi</td>
-                                        <td>Feldkirchen in Kärnten</td>
-                                    </tr>
-                                    <tr>
-                                        <td>6</td>
-                                        <td>Mason Porter</td>
-                                        <td>$78,615</td>
-                                        <td>Chile</td>
-                                        <td>Gloucester</td>
-                                    </tr>
+                                @endforeach
                                 </tbody>
                             </table>
+                            <div class="content">
 
+                                <div class="row">
+                                    <div class="col-lg-1">
+                                        <a href="{{ url('/') }}/cadastrar">
+                                            <button type="button" class="btn">Cadastrar Nova Atividade</button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
