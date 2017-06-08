@@ -28,7 +28,9 @@ class AppController extends Controller
 
     public function getAtividadesStatus ($status)
     {
-        return json_encode(Atividade::where(['status_id' => $status]));
+        return Atividade::where('status_id', $status)
+            ->take(5)
+            ->get();
     }
 
     public function getAtividadesSituacao ($situacao)

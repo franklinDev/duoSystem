@@ -2,7 +2,7 @@ $(document).ready(function () {
     $('.status_link').on('click', function (event) {
         event.preventDefault();
         $.ajax({
-            url: "/getAtividadesStatus/" + $('.status_link').attr('data-id'),
+            url: "/getAtividadesStatus/" + $(this).attr('data-id'),
             success: function(result){
             console.log(result);
         }});
@@ -11,7 +11,7 @@ $(document).ready(function () {
     $('.situacao_link').on('click', function (event) {
         event.preventDefault();
         $.ajax({
-            url: "/getAtividadesSituacao/" + $('.situacao_link').attr('data-id'),
+            url: "/getAtividadesSituacao/" + $(this).attr('data-id'),
             success: function(result){
                 console.log(result);
             }});
