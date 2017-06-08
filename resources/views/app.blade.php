@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="pt-br">
 <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/png" href="">
+    <meta charset="utf-8" />   
+    <link rel="shortcut icon" href="assets/img/favicon.ico" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <base href="{{url('/')}}">
     <title>DuoSystem</title>
@@ -48,6 +48,12 @@
                     <a href="{{ url('/') }}/cadastrar">
                         <i class="pe-7s-plus"></i>
                         <p>Cadastrar Atividades</p>
+                    </a>
+                </li>
+                <li class="active-pro">
+                    <a href="">
+                        <i class="pe-7s-hourglass"></i>
+                        <p>Pendencias: <strong style="color: red">{{$pendencias}}</strong></p>                        
                     </a>
                 </li>                        
             </ul>

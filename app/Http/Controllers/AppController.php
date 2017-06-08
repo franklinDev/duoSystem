@@ -10,9 +10,15 @@ class AppController extends Controller
 {
     public function index ()
     {
+        
+        $obj        = new Atividade();
         $atividades = Atividade::paginate(5);
-        $status = StatusAtividade::all();
-        return view('home', ['status' => $status, 'atividades' => $atividades]);
+        $status     = StatusAtividade::all();
+       
+        return view('home', ['status' => $status, 
+            'atividades' => $atividades, 
+            'pendencias' => $obj->getProcedurePendencias()]
+            );
     }
 
     public function cadastrar ()
