@@ -48,4 +48,22 @@ class Atividade extends Model
             return false;
         }
     }
+
+
+    public function editAtividade ($request, $id)
+    {
+        $atividade                  = Atividade::find($id);
+        $atividade->nome            = $request->input('nome');
+        $atividade->descricao       = $request->input('descricao');
+        $atividade->dt_inicio       = date('Y-m-d H:i:s', strtotime($request->input('dt_inicio')));
+        $atividade->dt_fim          = $request->input('dt_fim') ? date('Y-m-d H:i:s', strtotime($request->input('dt_fim'))) : null;
+        $atividade->status_id       = $request->input('status');
+        $atividade->situacao        = $request->input('situacao');
+
+        if ($atividade->save()) {
+            return 'Atividade salva';
+        } else {
+            return false;
+        }
+    }
 }

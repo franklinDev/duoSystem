@@ -89,7 +89,6 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 INSERT INTO `status_atividades` VALUES (1,'Pendente',1,'2017-06-07 20:44:13','2017-06-07 20:44:13'),(2,'Em Desenvolvimento',1,'2017-06-07 20:44:13','2017-06-07 20:44:13'),(3,'Em Teste',1,'2017-06-07 20:44:13','2017-06-07 20:44:13'),(4,'Concluído',1,'2017-06-07 20:44:13','2017-06-07 20:44:13');
 
 DELIMITER $$
-
 CREATE PROCEDURE Verificar_quantidade_atividades_pendentes (OUT quantidade INT)
 BEGIN
 	SELECT COUNT(*) INTO quantidade FROM atividades WHERE status_id = 1;	

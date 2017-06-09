@@ -59,7 +59,7 @@
                                 @foreach($atividades as $atividade)
                                     <tr class="row-atividade" @if ($atividade->status_id == 4) style="background-color: #dff0d8  @endif">
                                         <td>
-                                            <a href="{{url('/')}}/editar/{{$atividade->id}}">
+                                            <a href="{{url('/')}}/edicao/{{$atividade->id}}">
                                                 <button type="button" class="btn btn-default btn-sm">
                                                     <span class="glyphicon glyphicon-pencil"></span> Editar
                                                 </button>

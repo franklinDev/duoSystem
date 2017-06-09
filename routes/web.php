@@ -13,8 +13,9 @@
 
 Route::get('/', 'AppController@index');
 Route::get('/cadastro', 'AppController@cadastro');
-Route::get('/editar/{id}', 'AppController@editar');
+Route::get('/edicao/{id}', 'AppController@edicao');
 Route::get('/getAtividadesStatus/{status}', 'AppController@getAtividadesStatus');
 Route::get('/getAtividadesSituacao/{situacao}', 'AppController@getAtividadesSituacao');
 
 Route::post('/cadastrar', 'AppController@cadastrar');
+Route::post('/editar/{id}', 'AppController@editar');

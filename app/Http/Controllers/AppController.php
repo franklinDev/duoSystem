@@ -30,19 +30,42 @@ class AppController extends Controller
 
     public function cadastro ()
     {
-		return view('cadastro', ['pendencias' => $this->pendencias, 'status' => $this->status]);
+		return view('cadastro', [
+		    'pendencias' => $this->pendencias,
+            'status' => $this->status,
+            'action' => 'cadastrar'
+        ]);
     }
 
     public function cadastrar (Request $request)
     {
         $ret = $this->objAtividade->saveAtividade($request);        
-        return view('cadastro', ['pendencias' => $this->pendencias, 'status' => $this->status, 'mensagemSucesso' => $ret]);
+        return view('cadastro', [
+            'pendencias'        => $this->pendencias,
+            'status'            => $this->status,
+            'mensagemSucesso'   => $ret,
+            'action'            => 'cadastrar'
+        ]);
     }
 
-    public function editar ($id)
+    public function edicao ($id)
     {
         $atividade = Atividade::find($id);
-    	return view('cadastro', ['atividade' => $id]);
+
+    	return view('cadastro', [
+    	    'atividade'         => $atividade,
+            'status'            => $this->status,
+            'pendencias'        => $this->pendencias,
+            'action'            => "editar/$atividade->id"
+        ]);
+    }
+
+    public function editar (Request $request, $id)
+    {
+        $this->retorno = $this->objAtividade->editAtividade($request, $id);
+        return redirect()->action(
+            'AppController@edicao', ['id' => $id]
+        );
     }
 
     public function getAtividadesStatus ($status)

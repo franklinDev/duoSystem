@@ -51,9 +51,16 @@ $(document).ready(function () {
 			$('.tab-atividade').append(list);		
 			$('.pagination').remove();		
 		}
-
-  
     }
+
+	//Regra do campo data de finalização
+    $('#status').on('change', function (event) {
+		if ($(this).val() == 4) {
+			$('#dt_fim').prop('required',true);
+		} else {
+            $('#dt_fim').prop('required',false);
+		}
+    });
 
     $('.date').mask('00/00/0000');
 });
